@@ -1,5 +1,6 @@
 export const environment = {
   //Environment variables
   production: true,
-  apiBaseUrl : "https://my-prod-url"
+  apiVersion : "1",
+  apiBaseUrl : "https://travelbuddy-backend.azurewebsites.net/"
 };
