@@ -53,10 +53,6 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
-                },
-                {
-                  "replace": "src/app/config/auth-config.ts",
-                  "with": "src/app/config/auth-config.prod.ts"
                 }
               ],
               "optimization": true,
@@ -80,10 +76,6 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.alpha.ts"
-                },
-                {
-                  "replace": "src/app/config/auth-config.ts",
-                  "with": "src/app/config/auth-config.alpha.ts"
                 }                
               ],
               "optimization": true,
