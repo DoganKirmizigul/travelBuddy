@@ -3,5 +3,5 @@ export const environment = {
   production: false,
 
   apiVersion : "1",
-  apiBaseUrl : "https://localhost:9001"
+  apiBaseUrl : "https://travelbuddy-backend.azurewebsites.net/"
 };
