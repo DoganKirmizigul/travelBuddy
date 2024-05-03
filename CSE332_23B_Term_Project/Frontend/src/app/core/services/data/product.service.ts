@@ -6,36 +6,48 @@ import { IPagedResults, IProduct } from 'src/app/shared/interfaces';
 import { StorageService } from '../storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
+  productBaseUrl =
+    environment.apiBaseUrl + '/api/v' + environment.apiVersion + '/product';
 
-  productBaseUrl = environment.apiBaseUrl + "/api/v" + environment.apiVersion +"/product"
-  
-  constructor(private httpClient: HttpClient, private storageService: StorageService) { 
-    console.log(storageService.getFromLocalStorage("jwt"));
+  constructor(
+    private httpClient: HttpClient,
+    private storageService: StorageService
+  ) {
+    console.log(storageService.getFromLocalStorage('jwt'));
   }
 
-  getAll(pageNumber : number, pageSize: number): Observable<IPagedResults<IProduct>>{
+  getAll(
+    pageNumber: number,
+    pageSize: number
+  ): Observable<IPagedResults<IProduct>> {
     const parames = new HttpParams()
-    .set('pageNumber', pageNumber)
-    .set('pageSize', pageSize);
+      .set('pageNumber', pageNumber)
+      .set('pageSize', pageSize);
 
-    return this.httpClient.get<IPagedResults<IProduct>>(this.productBaseUrl,{params:parames});
+    return this.httpClient.get<IPagedResults<IProduct>>(this.productBaseUrl, {
+      params: parames,
+    });
   }
 
-  create(name: string, barcode: string, description:string, rate: number ){
-    return this.httpClient.post(this.productBaseUrl, 
-      {
-        name: name,
-        barcode: barcode,
-        description: description,
-        rate: rate
-      });
+  create(data: IProduct) {
+    return this.httpClient.post(this.productBaseUrl, data);
   }
 
+  getById(id: number): Observable<IProduct> {
+    return this.httpClient.get<IProduct>(`${this.productBaseUrl}/${id}`);
+  }
 
-  delete(id: number){
-    return this.httpClient.delete(`${this.productBaseUrl}/${id}`);
+  update(id: number, product: IProduct): Observable<IProduct> {
+    return this.httpClient.put<IProduct>(
+      `${this.productBaseUrl}/${id}`,
+      product
+    );
+  }
+
+  delete(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.productBaseUrl}/${id}`);
   }
 }
