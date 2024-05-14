@@ -38,10 +38,15 @@ namespace CleanArchitecture.Infrastructure
             }
 
 
+            services.AddDbContext<ProductDbContext>(options =>
+        options.UseSqlServer(configuration.GetConnectionString("ProductConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             #region Services
             services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<IHotelService, HotelService>();
+            services.AddTransient<IFlightService, FlightService>();
+            services.AddTransient<IRentalService, RentalService>();
             #endregion
             services.Configure<JWTSettings>(configuration.GetSection("JWTSettings"));
             services.AddAuthentication(options =>
