@@ -25,6 +25,8 @@ import { AuthService } from './services/auth.service';
       multi: true,
     },*/
     { provide: 'Window', useFactory: () => window },
+  ],
+  declarations: [
   ], // these should be singleton
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {

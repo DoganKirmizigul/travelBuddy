@@ -26,6 +26,7 @@ export class ProductsHomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.authService.isAuthenticated()) {
+      
       this.router.navigate(['login']);
 
       return;

@@ -35,6 +35,35 @@ export class ContentLayoutComponent implements OnInit {
     this.router.navigate(['auth']);
   }
 
+  visitHotels(){
+    
+    this.router.navigate(['products/hotels']);
+  }
+
+  visitRental(){
+    
+    this.router.navigate(['products/rental']);
+  }
+
+  visitFlights(){
+    
+    this.router.navigate(['products/flights']);
+  }
+
+  visitHome(){
+    
+    this.router.navigate(['products/home']);
+  }
+
+  visitDiscover(){
+    
+    this.router.navigate(['products/discover']);
+  }
+  
+  visitProfile(){
+    this.router.navigate(['products/profile']);
+  }
+
 
   
   //#endregion

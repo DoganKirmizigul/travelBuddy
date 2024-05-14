@@ -1,0 +1,36 @@
+// .container {
+//     display: flex;
+//     align-items: center;
+//   }
+  
+.mat-form-field {
+    flex: 1;
+  }
+  
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E0E0E0;
+  }
+  
+  /* your-component.css */
+.grid-container {
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if you want vertical centering too */
+    // height: 100vh; /* Adjust height to use the full viewport if desired */
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  
+
+  .center-content {
+    height: 100vh; /* Adjust the height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
